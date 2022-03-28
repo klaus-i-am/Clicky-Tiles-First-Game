@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     
     public GameObject rowPrefab;
+    public GameObject initialRow;
 
     private Tile tileScript;
 
@@ -17,8 +18,8 @@ public class GameManager : MonoBehaviour
     public bool isGameActive;
     public bool isTimerActive;
 
-    private float spawnRate = 0.4f;
-    private float spawnTime = 0.1f;
+    [SerializeField] private float spawnRate;
+    [SerializeField] private float spawnTime;
     private int score;
     private float time;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         UpdateScore(0);
         isGameActive = true;
+
         InvokeRepeating("SpawnRows", spawnTime, spawnRate);
 
     }
@@ -44,7 +46,9 @@ public class GameManager : MonoBehaviour
         float posZ = 3.955f;
         Vector3 spawnPos = new Vector3(rowPrefab.transform.position.x, rowPrefab.transform.position.y, posZ);
         
+
         Instantiate(rowPrefab, spawnPos, rowPrefab.transform.rotation);
+        
     }
 
     
