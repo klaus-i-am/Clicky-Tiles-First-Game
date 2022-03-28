@@ -5,7 +5,7 @@ using UnityEngine;
 public class RowMovement : MonoBehaviour
 {
 
-    public float speed = 1.0f;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,4 @@ public class RowMovement : MonoBehaviour
         }
     }
 
-    // Destroy Row
-    
 }

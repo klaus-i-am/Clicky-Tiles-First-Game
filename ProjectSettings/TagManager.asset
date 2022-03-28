@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Lava
+  - Q
+  - W
+  - E
+  - R
+  - Tile
+  - Start Bar
   layers:
   - Default
   - TransparentFX
