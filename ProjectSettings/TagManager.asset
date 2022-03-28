@@ -11,6 +11,7 @@ TagManager:
   - R
   - Tile
   - Start Bar
+  - Point Tile
   layers:
   - Default
   - TransparentFX

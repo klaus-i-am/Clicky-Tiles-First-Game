@@ -2,13 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     
     public GameObject rowPrefab;
+    public List<GameObject> rowTiles;
+
     public GameObject initialRow;
+    public GameObject startBar;
+
+    private AudioSource tileClick;
+    public AudioClip coinSound;
 
     private Tile tileScript;
 
@@ -27,11 +34,13 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tileClick = GetComponent<AudioSource>();
+
         score = 0;
         UpdateScore(0);
-        isGameActive = true;
-        InvokeRepeating("SpawnRows", spawnTime, spawnRate);
+        
 
+        StartGame();
     }
 
     // Update is called once per frame
@@ -50,8 +59,25 @@ public class GameManager : MonoBehaviour
         Instantiate(rowPrefab, spawnPos, Quaternion.identity);
         
     }
+    // Initial Spawn Rows
+    void InitialSpawnTiles()
+    {
+        // For loop -> index 6 (rows)
+    }
+    // Spawn Tiles
+    void SpawnTiles()
+    {
 
-    
+        int index = Random.Range(0, rowTiles.Count);
+        Instantiate(rowTiles[index]);
+    }
+
+    // Sound 
+    public void TileSound()
+    {
+        tileClick.PlayOneShot(coinSound, .5f);
+    }
+
     // Score 
     public void UpdateScore(int addScore)
     {
@@ -66,5 +92,13 @@ public class GameManager : MonoBehaviour
         timeText.SetText(time.ToString("F3"));
     }
 
-    // Game Over : 
+    // Start Game
+    public void StartGame()
+    {
+        isGameActive = true;
+        InvokeRepeating("SpawnRows", spawnTime, spawnRate);
+        //SpawnTiles();
+    }
+    
+    
 }

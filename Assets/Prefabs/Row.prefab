@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2232221054561627774}
   m_Layer: 0
   m_Name: Tile
-  m_TagString: Tile
+  m_TagString: Point Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290d3d009a426e640bee480bbe08f700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileNumber: 4
   scoreCount: 0
 --- !u!54 &2232221054561627774
 Rigidbody:
@@ -191,7 +190,7 @@ GameObject:
   - component: {fileID: 8936128363368053598}
   m_Layer: 0
   m_Name: Tile
-  m_TagString: Tile
+  m_TagString: Point Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -284,7 +283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290d3d009a426e640bee480bbe08f700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileNumber: 1
   scoreCount: 0
 --- !u!54 &8936128363368053598
 Rigidbody:
@@ -411,7 +409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290d3d009a426e640bee480bbe08f700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileNumber: 3
   scoreCount: 0
 --- !u!54 &7783460181049479360
 Rigidbody:
@@ -538,7 +535,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290d3d009a426e640bee480bbe08f700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileNumber: 2
   scoreCount: 0
 --- !u!54 &5689518664483997632
 Rigidbody:

@@ -6,17 +6,16 @@ public class Tile : MonoBehaviour
 {
     private GameManager gameManager;
     
-
-    public int TileNumber;
     public int scoreCount;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-
-        //RandomColor();
         
+        
+        //RandomColor();
+
     }
 
     // Update is called once per frame
@@ -28,13 +27,20 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        scoreCount++;
-        gameManager.UpdateScore(scoreCount);
-        Destroy(gameObject);
+        if (gameObject.CompareTag("Point Tile"))
+        {
+            gameManager.TileSound();
+            scoreCount++;
+            gameManager.UpdateScore(scoreCount);
+            Destroy(gameObject);
+        }
+        
     }
 
     void KeyboardControls()
     {
+        float tilePosZ = gameManager.startBar.transform.position.z;
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             // Q = Tile 1
@@ -52,8 +58,11 @@ public class Tile : MonoBehaviour
     }
 
     // Tile Random Color also
-    void RandomColor()
+    void TileType()
     {
-       gameObject.GetComponent<MeshRenderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+
+
+
+        //gameObject.GetComponent<MeshRenderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
     }
 }
