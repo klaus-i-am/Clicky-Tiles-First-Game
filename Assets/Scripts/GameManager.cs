@@ -17,11 +17,12 @@ public class GameManager : MonoBehaviour
 
     public bool isGameActive;
     public bool isTimerActive;
-
+    [SerializeField] private float posZ;
     [SerializeField] private float spawnRate;
     [SerializeField] private float spawnTime;
     private int score;
     private float time;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,6 @@ public class GameManager : MonoBehaviour
         score = 0;
         UpdateScore(0);
         isGameActive = true;
-
         InvokeRepeating("SpawnRows", spawnTime, spawnRate);
 
     }
@@ -43,11 +43,11 @@ public class GameManager : MonoBehaviour
     // Spawn Rows
     void SpawnRows()
     {
-        float posZ = 3.955f;
+        
         Vector3 spawnPos = new Vector3(rowPrefab.transform.position.x, rowPrefab.transform.position.y, posZ);
         
 
-        Instantiate(rowPrefab, spawnPos, rowPrefab.transform.rotation);
+        Instantiate(rowPrefab, spawnPos, Quaternion.identity);
         
     }
 

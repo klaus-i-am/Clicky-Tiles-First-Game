@@ -14,12 +14,15 @@ public class Tile : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
+        //RandomColor();
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         //KeyboardControls();
     }
 
@@ -51,6 +54,6 @@ public class Tile : MonoBehaviour
     // Tile Random Color also
     void RandomColor()
     {
-       
+       gameObject.GetComponent<MeshRenderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
     }
 }
