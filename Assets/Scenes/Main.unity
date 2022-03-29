@@ -1165,7 +1165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6448c740f8e71f4cb50eec43686e048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
 --- !u!1 &565167308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,7 +1212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6448c740f8e71f4cb50eec43686e048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,7 +1952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rowSpeed: 0
-  rowPrefab: {fileID: 1833081562}
+  rowPrefab: {fileID: 1076170975773267810, guid: ae3f8e2a0e0b8024a8d90c04699ab028, type: 3}
   rowTiles:
   - {fileID: 5361458421533318975, guid: 12ce7366bd4527149b9b210d9feb2765, type: 3}
   - {fileID: 4621952709527147012, guid: 8b651f18b470d88419cd704562149e60, type: 3}
@@ -1970,8 +1968,8 @@ MonoBehaviour:
   restartText: {fileID: 1731233005}
   gameOverText: {fileID: 925281532}
   isGameActive: 0
-  posZ: 3.75
-  spawnRate: 0.95
+  posZ: 4.525
+  spawnRate: 5.95
   spawnTime: 1.35
 --- !u!4 &1000993957
 Transform:
@@ -2256,7 +2254,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6448c740f8e71f4cb50eec43686e048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
 --- !u!1 &1102218948
 GameObject:
   m_ObjectHideFlags: 0
@@ -2682,7 +2679,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6448c740f8e71f4cb50eec43686e048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
 --- !u!1 &1549645272
 GameObject:
   m_ObjectHideFlags: 0
@@ -3242,7 +3238,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6448c740f8e71f4cb50eec43686e048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
 --- !u!1 &1731233002
 GameObject:
   m_ObjectHideFlags: 0
@@ -4676,7 +4671,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6448c740f8e71f4cb50eec43686e048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
 --- !u!1 &2065748192
 GameObject:
   m_ObjectHideFlags: 0

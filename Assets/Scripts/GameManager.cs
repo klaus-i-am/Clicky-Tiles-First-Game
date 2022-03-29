@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(rowTiles[index].name = type[nameIndex]);
 
         // Instantiate Tile
-        Instantiate(rowTiles[index]);
+        //Instantiate(rowTiles[index]);
 
     }
 

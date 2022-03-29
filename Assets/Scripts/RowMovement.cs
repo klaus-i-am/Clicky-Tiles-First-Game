@@ -5,7 +5,7 @@ using UnityEngine;
 public class RowMovement : MonoBehaviour
 {
 
-    public GameManager gameManager;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
