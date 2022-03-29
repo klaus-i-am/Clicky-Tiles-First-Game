@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     
     public GameObject rowPrefab;
+    public GameObject rowPrefab2;
     public List<GameObject> rowTiles;
 
     public GameObject initialRow;
@@ -16,8 +17,6 @@ public class GameManager : MonoBehaviour
 
     private AudioSource tileClick;
     public AudioClip coinSound;
-
-    private Tile tileScript;
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timeText;
@@ -38,7 +37,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         UpdateScore(0);
         
-        StartGame();
+        StartGame(); 
     }
 
     // Update is called once per frame
@@ -50,19 +49,20 @@ public class GameManager : MonoBehaviour
     // Spawn Rows
     void SpawnRows()
     {
+        int count = 0;
         
-        Vector3 spawnPos = new Vector3(rowPrefab.transform.position.x, rowPrefab.transform.position.y, posZ);
-        
+        for (int i = count; i < 1; i++)
+        {
+            count++;
+            Debug.Log(count);
 
-        Instantiate(rowPrefab, spawnPos, Quaternion.identity);
+            // Instantiate Row 1
+            Vector3 spawnPos = new Vector3(rowPrefab.transform.position.x, rowPrefab.transform.position.y, posZ);
+            Instantiate(rowPrefab, spawnPos, Quaternion.identity);
+
+        }
         
     }
-    // Initial Spawn Rows
-    void InitialSpawnTiles()
-    {
-        // For loop -> index 6 (rows)
-    }
-    
 
     // Sound 
     public void TileSound()
@@ -87,6 +87,8 @@ public class GameManager : MonoBehaviour
     // Spawn Tiles
     public void SpawnTiles()
     {
+        
+
         int index = Random.Range(0, rowTiles.Count);
         string[] type = new string[] { "lava", "point" };
 
@@ -94,8 +96,11 @@ public class GameManager : MonoBehaviour
         int nameIndex = Random.Range(0, type.Length);
 
         Debug.Log(rowTiles[index].name = type[nameIndex]);
+
+        // Instantiate Tile
         Instantiate(rowTiles[index]);
     }
+    
     // Start Game
     public void StartGame()
     {
@@ -104,6 +109,7 @@ public class GameManager : MonoBehaviour
 
         //SpawnRows();
     }
-    
-    
+
+   
+
 }

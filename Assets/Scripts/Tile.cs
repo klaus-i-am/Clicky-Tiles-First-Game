@@ -13,20 +13,13 @@ public class Tile : MonoBehaviour
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         
-        //RandomColor();
+        //TileType();
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-        //KeyboardControls();
     }
 
     private void OnMouseDown()
     {
-        if (gameObject.name == "point")
+        if (gameObject.name == "Tile")
         {
             gameManager.TileSound();
             scoreCount++;
@@ -36,32 +29,12 @@ public class Tile : MonoBehaviour
         
     }
 
-    void KeyboardControls()
-    {
-        float tilePosZ = gameManager.startBar.transform.position.z;
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            // Q = Tile 1
-            Destroy(GameObject.FindGameObjectWithTag("Lava"));
-        }
-    }
+    
 
     // Colliders
     private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.CompareTag("Lava") && other.gameObject.CompareTag("Start Bar"))
-        {
-            Debug.Log("You touched: " + gameObject.tag);
-        }
+      
     }
    
-    // Tile Random Color also
-    void TileType()
-    {
-
-
-
-        //gameObject.GetComponent<MeshRenderer>().material.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
-    }
 }

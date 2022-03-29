@@ -1669,11 +1669,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rowPrefab: {fileID: 5421771521957210123, guid: de2d179f7f72bd74ab90c7cf2aa8a5b1, type: 3}
+  rowPrefab2: {fileID: 5421771521957210123, guid: 5c7f5e171ec13254a94622b56830badf, type: 3}
   rowTiles:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 5361458421533318975, guid: 12ce7366bd4527149b9b210d9feb2765, type: 3}
+  - {fileID: 4621952709527147012, guid: 8b651f18b470d88419cd704562149e60, type: 3}
+  - {fileID: 7931828495485738636, guid: 08774b3d4eab6a44ab957cfda200d26e, type: 3}
+  - {fileID: 1060096175456812345, guid: 6e39aef243250d845bfd4e932dc9eb6e, type: 3}
   initialRow: {fileID: 1060353818}
   startBar: {fileID: 136276678549405304}
   coinSound: {fileID: 8300000, guid: 281d22092658edb459a088582a3ecbf1, type: 3}
@@ -4250,7 +4251,6 @@ GameObject:
   - component: {fileID: 3965767961646201291}
   - component: {fileID: 2156595366121317555}
   - component: {fileID: 980012359557694666}
-  - component: {fileID: 5165742507965188503}
   m_Layer: 0
   m_Name: Start Bar
   m_TagString: Start Bar
@@ -4334,16 +4334,3 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136276678549405304}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &5165742507965188503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136276678549405304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 290d3d009a426e640bee480bbe08f700, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreCount: 0
