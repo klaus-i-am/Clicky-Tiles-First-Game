@@ -35,11 +35,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         tileClick = GetComponent<AudioSource>();
-
         score = 0;
         UpdateScore(0);
         
-
         StartGame();
     }
 
@@ -64,13 +62,7 @@ public class GameManager : MonoBehaviour
     {
         // For loop -> index 6 (rows)
     }
-    // Spawn Tiles
-    void SpawnTiles()
-    {
-
-        int index = Random.Range(0, rowTiles.Count);
-        Instantiate(rowTiles[index]);
-    }
+    
 
     // Sound 
     public void TileSound()
@@ -92,12 +84,25 @@ public class GameManager : MonoBehaviour
         timeText.SetText(time.ToString("F3"));
     }
 
+    // Spawn Tiles
+    public void SpawnTiles()
+    {
+        int index = Random.Range(0, rowTiles.Count);
+        string[] type = new string[] { "lava", "point" };
+
+        // Assign random tpye
+        int nameIndex = Random.Range(0, type.Length);
+
+        Debug.Log(rowTiles[index].name = type[nameIndex]);
+        Instantiate(rowTiles[index]);
+    }
     // Start Game
     public void StartGame()
     {
         isGameActive = true;
         InvokeRepeating("SpawnRows", spawnTime, spawnRate);
-        //SpawnTiles();
+
+        //SpawnRows();
     }
     
     

@@ -13,7 +13,6 @@ public class Tile : MonoBehaviour
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         
-        
         //RandomColor();
 
     }
@@ -27,7 +26,7 @@ public class Tile : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (gameObject.CompareTag("Point Tile"))
+        if (gameObject.name == "point")
         {
             gameManager.TileSound();
             scoreCount++;
@@ -56,7 +55,7 @@ public class Tile : MonoBehaviour
             Debug.Log("You touched: " + gameObject.tag);
         }
     }
-
+   
     // Tile Random Color also
     void TileType()
     {
