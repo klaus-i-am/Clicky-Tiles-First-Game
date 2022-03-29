@@ -12,29 +12,40 @@ public class Tile : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        
-        //TileType();
 
     }
 
     private void OnMouseDown()
     {
-        if (gameObject.name == "Tile")
+
+        Color startTileColor = new Color(0.1012371f, 0.7510139f, 0.8584906f, 1f);
+        if (gameObject.GetComponent<MeshRenderer>().material.color == Color.black)
         {
             gameManager.TileSound();
             scoreCount++;
             gameManager.UpdateScore(scoreCount);
             Destroy(gameObject);
+
+        } else if (gameManager.gameObject.GetComponent<MeshRenderer>().material.color == startTileColor) {
+
+            gameManager.StartGame();
+
+            Debug.Log("Started!");
+
+        } else
+        {
+
+            // wrong sound
+            Debug.Log("You lose points! Minus 5 points for Gryffindor!");
+
+            scoreCount--;
+            gameManager.UpdateScore(scoreCount);
+
+            gameManager.isGameActive = false;
+            gameManager.GameOver();
         }
         
     }
-
     
-
-    // Colliders
-    private void OnTriggerEnter(Collider other)
-    {
-      
-    }
    
 }

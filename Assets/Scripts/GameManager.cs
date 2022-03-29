@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timeText;
 
+    public TextMeshProUGUI startText;
+    public TextMeshProUGUI gameOverText;
+
+
     public bool isGameActive;
     public bool isTimerActive;
     [SerializeField] private float posZ;
@@ -36,8 +40,7 @@ public class GameManager : MonoBehaviour
         tileClick = GetComponent<AudioSource>();
         score = 0;
         UpdateScore(0);
-        
-        StartGame(); 
+         
     }
 
     // Update is called once per frame
@@ -49,17 +52,11 @@ public class GameManager : MonoBehaviour
     // Spawn Rows
     void SpawnRows()
     {
-        int count = 0;
-        
-        for (int i = count; i < 1; i++)
+        while(isGameActive)
         {
-            count++;
-            Debug.Log(count);
-
             // Instantiate Row 1
             Vector3 spawnPos = new Vector3(rowPrefab.transform.position.x, rowPrefab.transform.position.y, posZ);
             Instantiate(rowPrefab, spawnPos, Quaternion.identity);
-
         }
         
     }
@@ -104,10 +101,28 @@ public class GameManager : MonoBehaviour
     // Start Game
     public void StartGame()
     {
-        isGameActive = true;
-        InvokeRepeating("SpawnRows", spawnTime, spawnRate);
 
-        //SpawnRows();
+        isGameActive = true;
+        isTimerActive = true;
+        gameOverText.gameObject.SetActive(false);
+
+        InvokeRepeating("SpawnRows", spawnTime, spawnRate);
+    }
+
+    // Restart Game
+    public void RestartGame()
+    {
+        // Maybe?
+    }
+
+    // Game Over
+    public void GameOver()
+    {
+        isGameActive = false;
+        isTimerActive = false;
+
+        startText.SetText("Restart");
+        gameOverText.gameObject.SetActive(true);
     }
 
    
