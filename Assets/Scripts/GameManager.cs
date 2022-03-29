@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject initialRow;
     public GameObject startBar;
+    public GameObject startButton;
+    public GameObject restartButton;
 
     private AudioSource tileClick;
     public AudioClip coinSound;
@@ -25,7 +27,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timeText;
 
     public TextMeshProUGUI startText;
-    public TextMeshProUGUI restartText;
     public TextMeshProUGUI gameOverText;
 
     public bool isGameActive;
@@ -33,8 +34,8 @@ public class GameManager : MonoBehaviour
     private float time;
 
     [SerializeField] private float posZ;
-    [SerializeField] private float spawnRate;
-    [SerializeField] private float spawnTime;
+    public float spawnRate;
+    public float spawnTime;
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +79,7 @@ public class GameManager : MonoBehaviour
 
         gameOverText.gameObject.SetActive(false);
         startText.gameObject.SetActive(false);
+        startButton.SetActive(false);
         rowSpeed = 0.5f;
 
         InvokeRepeating("SpawnRows", spawnTime, spawnRate);
@@ -96,10 +98,11 @@ public class GameManager : MonoBehaviour
         isGameActive = false;
 
         rowSpeed = 0f;
-
+        restartButton.SetActive(true);
         startText.gameObject.SetActive(false);
-        restartText.gameObject.SetActive(true);
         gameOverText.gameObject.SetActive(true);
+
+        
 
     }
 

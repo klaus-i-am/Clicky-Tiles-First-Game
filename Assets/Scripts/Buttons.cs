@@ -16,9 +16,9 @@ public class Buttons : MonoBehaviour
 
         button.onClick.AddListener(StartButton);
     }
-
     void StartButton() {
+
         gameManager.StartGame();
-        Debug.Log("Started...");
+        
     }
 }

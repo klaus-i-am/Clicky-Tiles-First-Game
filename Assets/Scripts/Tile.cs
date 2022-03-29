@@ -19,28 +19,42 @@ public class Tile : MonoBehaviour
     // When the player clicks tile
     private void OnMouseDown()
     {
-        
-
-        if (gameObject.GetComponent<MeshRenderer>().material.color == Color.black)
+        if (gameManager.isGameActive)
         {
-            gameManager.TileSound(gameManager.coinSound);
-            scoreCount++;
-            gameManager.UpdateScore(scoreCount);
-            Destroy(gameObject);
+            if (gameObject.GetComponent<MeshRenderer>().material.color == Color.black)
+            {
+                gameManager.TileSound(gameManager.coinSound);
+                IncreaseSpeed(.5f, 5.96f, 1.35f, 1f);
+                scoreCount++;
+                gameManager.UpdateScore(scoreCount);
+                Destroy(gameObject);
+
+            }
+            if (gameObject.GetComponent<MeshRenderer>().material.color == Color.white)
+            {
+
+                // wrong sound
+                gameManager.TileSound(gameManager.wrongSound);
+                scoreCount--;
+                gameManager.UpdateScore(scoreCount);
+
+                gameManager.isGameActive = false;
+                gameManager.GameOver();
+            }
 
         }
-        if (gameObject.GetComponent<MeshRenderer>().material.color == Color.white)
-        {
 
-            // wrong sound
-            gameManager.TileSound(gameManager.wrongSound);
-            scoreCount--;
-            gameManager.UpdateScore(scoreCount);
 
-            gameManager.isGameActive = false;
-            gameManager.GameOver();
-        }
+    }
+
+    // Increase Speed of Tiles
+    void IncreaseSpeed(float Speed, float Rate, float Time, float Multiplier)
+    {
+        gameManager.rowSpeed = Speed;
         
+        gameManager.spawnRate = Rate;
+        
+        gameManager.spawnTime = Time;
     }
     
    
