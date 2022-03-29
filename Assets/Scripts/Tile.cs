@@ -16,16 +16,10 @@ public class Tile : MonoBehaviour
         
     }
 
+    // When the player clicks tile
     private void OnMouseDown()
     {
-        if (gameObject.CompareTag("Start Tile"))
-        {
-
-            gameManager.StartGame();
-
-            Debug.Log("Started!");
-
-        }
+        
 
         if (gameObject.GetComponent<MeshRenderer>().material.color == Color.black)
         {
@@ -39,7 +33,6 @@ public class Tile : MonoBehaviour
         {
 
             // wrong sound
-            Debug.Log("You lose points! Minus 5 points for Gryffindor!");
             gameManager.TileSound(gameManager.wrongSound);
             scoreCount--;
             gameManager.UpdateScore(scoreCount);

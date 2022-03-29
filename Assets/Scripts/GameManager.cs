@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public RowMovement rowSpeed;
+    public float rowSpeed;
 
     public GameObject rowPrefab;
-    public GameObject rowPrefab2;
 
     public List<GameObject> rowTiles;
 
@@ -25,8 +25,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timeText;
 
     public TextMeshProUGUI startText;
+    public TextMeshProUGUI restartText;
     public TextMeshProUGUI gameOverText;
-
 
     public bool isGameActive;
     private int score;
@@ -39,23 +39,68 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         tileClick = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        StopWatch();
+        if (isGameActive)
+        {
+            StopWatch();
+        } else
+        {
+            return;
+        }
+        
     }
 
     // Spawn Rows
     void SpawnRows()
     {
+        if (isGameActive)
+        {
+            Vector3 spawnPos = new Vector3(rowPrefab.transform.position.x, rowPrefab.transform.position.y, posZ);
+            Instantiate(rowPrefab, spawnPos, Quaternion.identity);
 
-        // Instantiate Row 1
-        Vector3 spawnPos = new Vector3(rowPrefab.transform.position.x, rowPrefab.transform.position.y, posZ);
-        Instantiate(rowPrefab, spawnPos, Quaternion.identity);
-       
+        }
+
+    }
+    // Start Game
+    public void StartGame()
+    {
+        isGameActive = true;
+
+        score = 0;
+        UpdateScore(0);
+
+        gameOverText.gameObject.SetActive(false);
+        startText.gameObject.SetActive(false);
+        rowSpeed = 0.5f;
+
+        InvokeRepeating("SpawnRows", spawnTime, spawnRate);
+
+    }
+
+    // Restart Game
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // Game Over
+    public void GameOver()
+    {
+        isGameActive = false;
+
+        rowSpeed = 0f;
+
+        startText.gameObject.SetActive(false);
+        restartText.gameObject.SetActive(true);
+        gameOverText.gameObject.SetActive(true);
+
     }
 
     // Sound 
@@ -94,40 +139,5 @@ public class GameManager : MonoBehaviour
         Instantiate(rowTiles[index]);
 
     }
-    
-    // Start Game
-    public void StartGame()
-    {
-        isGameActive = true;
-        rowSpeed = GetComponent<RowMovement>();
-        rowSpeed.speed = .5f;
-
-        
-        score = 0;
-        UpdateScore(0);
-
-        gameOverText.gameObject.SetActive(false);
-        startText.gameObject.SetActive(false);
-
-        InvokeRepeating("SpawnRows", spawnTime, spawnRate);
-        
-    }
-
-    // Restart Game
-    public void RestartGame()
-    {
-        // Maybe?
-    }
-
-    // Game Over
-    public void GameOver()
-    {
-        isGameActive = false;
-
-        startText.SetText("Restart");
-        gameOverText.gameObject.SetActive(true);
-    }
-
-   
 
 }
