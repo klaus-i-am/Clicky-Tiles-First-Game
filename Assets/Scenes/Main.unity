@@ -1164,7 +1164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  gameManager: {fileID: 0}
 --- !u!1 &565167308
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,7 +1212,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  gameManager: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,7 +1321,7 @@ GameObject:
   - component: {fileID: 714451018}
   m_Layer: 0
   m_Name: Tile
-  m_TagString: Point
+  m_TagString: Start Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1576,7 +1574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &925281532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1806,6 +1804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3064815f131d0b840acfe2091d9c9da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rowSpeed: {fileID: 0}
   rowPrefab: {fileID: 5421771521957210123, guid: de2d179f7f72bd74ab90c7cf2aa8a5b1, type: 3}
   rowPrefab2: {fileID: 5421771521957210123, guid: 5c7f5e171ec13254a94622b56830badf, type: 3}
   rowTiles:
@@ -1816,12 +1815,12 @@ MonoBehaviour:
   initialRow: {fileID: 1060353818}
   startBar: {fileID: 136276678549405304}
   coinSound: {fileID: 8300000, guid: 281d22092658edb459a088582a3ecbf1, type: 3}
+  wrongSound: {fileID: 8300000, guid: d9b4511d6c04b424aaa4bce6d911298b, type: 3}
   scoreText: {fileID: 1549645274}
   timeText: {fileID: 156282393}
   startText: {fileID: 1973552390}
   gameOverText: {fileID: 925281532}
   isGameActive: 0
-  isTimerActive: 0
   posZ: 3.75
   spawnRate: 0.95
   spawnTime: 1.35
@@ -2109,7 +2108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  gameManager: {fileID: 0}
 --- !u!1 &1102218948
 GameObject:
   m_ObjectHideFlags: 0
@@ -2126,7 +2124,7 @@ GameObject:
   - component: {fileID: 1102218954}
   m_Layer: 0
   m_Name: Tile
-  m_TagString: Untagged
+  m_TagString: Start Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2252,7 +2250,7 @@ GameObject:
   - component: {fileID: 1279403955}
   m_Layer: 0
   m_Name: Tile
-  m_TagString: Point
+  m_TagString: Start Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2536,7 +2534,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  gameManager: {fileID: 0}
 --- !u!1 &1549645272
 GameObject:
   m_ObjectHideFlags: 0
@@ -3097,7 +3094,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  gameManager: {fileID: 0}
 --- !u!1 &1756199683
 GameObject:
   m_ObjectHideFlags: 0
@@ -3114,7 +3110,7 @@ GameObject:
   - component: {fileID: 1756199689}
   m_Layer: 0
   m_Name: Tile
-  m_TagString: Untagged
+  m_TagString: Start Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4264,7 +4260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  gameManager: {fileID: 0}
 --- !u!1 &2065748192
 GameObject:
   m_ObjectHideFlags: 0

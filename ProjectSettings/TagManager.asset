@@ -13,6 +13,7 @@ TagManager:
   - Start Bar
   - Point
   - Point Tile
+  - Start Tile
   layers:
   - Default
   - TransparentFX

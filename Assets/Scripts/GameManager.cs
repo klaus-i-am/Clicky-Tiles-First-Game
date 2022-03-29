@@ -7,9 +7,11 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    
+    public RowMovement rowSpeed;
+
     public GameObject rowPrefab;
     public GameObject rowPrefab2;
+
     public List<GameObject> rowTiles;
 
     public GameObject initialRow;
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     private AudioSource tileClick;
     public AudioClip coinSound;
+    public AudioClip wrongSound;
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timeText;
@@ -26,21 +29,17 @@ public class GameManager : MonoBehaviour
 
 
     public bool isGameActive;
-    public bool isTimerActive;
-    [SerializeField] private float posZ;
-    [SerializeField] private float spawnRate;
-    [SerializeField] private float spawnTime;
     private int score;
     private float time;
 
+    [SerializeField] private float posZ;
+    [SerializeField] private float spawnRate;
+    [SerializeField] private float spawnTime;
 
     // Start is called before the first frame update
     void Start()
     {
         tileClick = GetComponent<AudioSource>();
-        score = 0;
-        UpdateScore(0);
-         
     }
 
     // Update is called once per frame
@@ -52,19 +51,17 @@ public class GameManager : MonoBehaviour
     // Spawn Rows
     void SpawnRows()
     {
-        while(isGameActive)
-        {
-            // Instantiate Row 1
-            Vector3 spawnPos = new Vector3(rowPrefab.transform.position.x, rowPrefab.transform.position.y, posZ);
-            Instantiate(rowPrefab, spawnPos, Quaternion.identity);
-        }
-        
+
+        // Instantiate Row 1
+        Vector3 spawnPos = new Vector3(rowPrefab.transform.position.x, rowPrefab.transform.position.y, posZ);
+        Instantiate(rowPrefab, spawnPos, Quaternion.identity);
+       
     }
 
     // Sound 
-    public void TileSound()
+    public void TileSound(AudioClip sound)
     {
-        tileClick.PlayOneShot(coinSound, .5f);
+        tileClick.PlayOneShot(sound, .5f);
     }
 
     // Score 
@@ -78,13 +75,12 @@ public class GameManager : MonoBehaviour
     void StopWatch()
     {
         time += Time.deltaTime;
-        timeText.SetText(time.ToString("F3"));
+        timeText.SetText(time.ToString("F2"));
     }
 
     // Spawn Tiles
     public void SpawnTiles()
     {
-        
 
         int index = Random.Range(0, rowTiles.Count);
         string[] type = new string[] { "lava", "point" };
@@ -96,17 +92,25 @@ public class GameManager : MonoBehaviour
 
         // Instantiate Tile
         Instantiate(rowTiles[index]);
+
     }
     
     // Start Game
     public void StartGame()
     {
-
         isGameActive = true;
-        isTimerActive = true;
+        rowSpeed = GetComponent<RowMovement>();
+        rowSpeed.speed = .5f;
+
+        
+        score = 0;
+        UpdateScore(0);
+
         gameOverText.gameObject.SetActive(false);
+        startText.gameObject.SetActive(false);
 
         InvokeRepeating("SpawnRows", spawnTime, spawnRate);
+        
     }
 
     // Restart Game
@@ -119,7 +123,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         isGameActive = false;
-        isTimerActive = false;
 
         startText.SetText("Restart");
         gameOverText.gameObject.SetActive(true);
