@@ -16,6 +16,10 @@ public class Tile : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        DeathBar();
+    }
     // When the player clicks tile
     private void OnMouseDown()
     {
@@ -56,6 +60,13 @@ public class Tile : MonoBehaviour
         
         gameManager.spawnTime = Time;
     }
-    
-   
+
+    // Black tile off screen -> game over
+    void DeathBar()
+    {
+        if (gameObject.GetComponent<MeshRenderer>().material.color == Color.black && gameObject.transform.position.z < .98f)
+        {
+            gameManager.GameOver();
+        }
+    }
 }
