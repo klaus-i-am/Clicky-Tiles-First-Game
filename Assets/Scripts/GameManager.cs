@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public AudioClip coinSound;
     public AudioClip wrongSound;
 
+    public TextMeshProUGUI titleText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI timeText;
 
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
         score = 0;
         UpdateScore(0);
 
+        titleText.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(false);
         startText.gameObject.SetActive(false);
         startButton.SetActive(false);
@@ -123,7 +125,7 @@ public class GameManager : MonoBehaviour
     void StopWatch()
     {
         time += Time.deltaTime;
-        timeText.SetText(time.ToString("F2"));
+        timeText.SetText("Time: " + time.ToString("F2"));
     }
 
     // Spawn Tiles
